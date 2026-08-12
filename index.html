@@ -1,14 +1,12 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>PristBot | Discord Bot</title>
 
 <style>
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,18 +24,14 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
-   ANIMATED BACKGROUND
-========================= */
-
 .background {
     position: fixed;
     inset: 0;
     z-index: -2;
     overflow: hidden;
     background:
-        radial-gradient(circle at 20% 20%, rgba(88,101,242,0.18), transparent 30%),
-        radial-gradient(circle at 80% 70%, rgba(145,70,255,0.16), transparent 30%),
+        radial-gradient(circle at 20% 20%, rgba(88,101,242,.18), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(145,70,255,.16), transparent 30%),
         #070914;
 }
 
@@ -47,7 +41,7 @@ body {
     height: 400px;
     border-radius: 50%;
     filter: blur(100px);
-    opacity: 0.25;
+    opacity: .25;
     animation: float 10s ease-in-out infinite;
 }
 
@@ -65,18 +59,13 @@ body {
 }
 
 @keyframes float {
-    0%, 100% {
-        transform: translateY(0) translateX(0);
+    0%,100% {
+        transform: translate(0,0);
     }
-
     50% {
-        transform: translateY(-60px) translateX(30px);
+        transform: translate(30px,-60px);
     }
 }
-
-/* =========================
-   NAVBAR
-========================= */
 
 header {
     position: sticky;
@@ -86,17 +75,14 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    background: rgba(10, 12, 27, 0.78);
+    background: rgba(10,12,27,.78);
     backdrop-filter: blur(15px);
-
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .logo {
     font-size: 25px;
     font-weight: 800;
-    letter-spacing: 0.5px;
 }
 
 .logo span {
@@ -107,16 +93,12 @@ nav a {
     color: #aeb5d0;
     text-decoration: none;
     margin-left: 28px;
-    transition: 0.25s;
+    transition: .25s;
 }
 
 nav a:hover {
     color: white;
 }
-
-/* =========================
-   HERO
-========================= */
 
 .hero {
     min-height: 90vh;
@@ -137,7 +119,6 @@ nav a:hover {
         opacity: 0;
         transform: translateY(35px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -148,50 +129,29 @@ nav a:hover {
     display: inline-block;
     padding: 9px 17px;
     border-radius: 999px;
-    background: rgba(88,101,242,0.12);
-    border: 1px solid rgba(88,101,242,0.35);
+    background: rgba(88,101,242,.12);
+    border: 1px solid rgba(88,101,242,.35);
     color: #9da9ff;
     margin-bottom: 25px;
-    animation: pulse 3s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        box-shadow: 0 0 0 rgba(88,101,242,0);
-    }
-
-    50% {
-        box-shadow: 0 0 30px rgba(88,101,242,0.25);
-    }
 }
 
 .hero h1 {
-    font-size: clamp(50px, 9vw, 90px);
+    font-size: clamp(50px,9vw,90px);
     line-height: 1;
     margin-bottom: 25px;
-
-    background: linear-gradient(
-        90deg,
-        #ffffff,
-        #8794ff,
-        #b16cff,
-        #ffffff
-    );
-
+    background: linear-gradient(90deg,#fff,#8794ff,#b16cff,#fff);
     background-size: 300%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-
     animation: gradientMove 5s linear infinite;
 }
 
 @keyframes gradientMove {
-    0% {
+    from {
         background-position: 0%;
     }
-
-    100% {
+    to {
         background-position: 300%;
     }
 }
@@ -204,10 +164,6 @@ nav a:hover {
     margin: auto;
 }
 
-/* =========================
-   BUTTONS
-========================= */
-
 .buttons {
     margin-top: 40px;
 }
@@ -216,42 +172,26 @@ nav a:hover {
     display: inline-block;
     padding: 16px 30px;
     margin: 8px;
-
     border-radius: 12px;
-
     color: white;
     text-decoration: none;
     font-weight: bold;
-
     background: #5865f2;
-
-    box-shadow: 0 8px 30px rgba(88,101,242,0.25);
-
-    transition:
-        transform 0.25s,
-        box-shadow 0.25s,
-        background 0.25s;
+    box-shadow: 0 8px 30px rgba(88,101,242,.25);
+    transition: .25s;
 }
 
 .button:hover {
     transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 15px 40px rgba(88,101,242,0.4);
+    box-shadow: 0 15px 40px rgba(88,101,242,.4);
     background: #6975ff;
 }
 
 .secondary {
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.1);
     box-shadow: none;
 }
-
-.secondary:hover {
-    background: rgba(255,255,255,0.12);
-}
-
-/* =========================
-   SECTIONS
-========================= */
 
 section {
     padding: 100px 8%;
@@ -263,13 +203,9 @@ section h2 {
     margin-bottom: 55px;
 }
 
-/* =========================
-   FEATURES
-========================= */
-
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
     gap: 22px;
     max-width: 1100px;
     margin: auto;
@@ -278,42 +214,18 @@ section h2 {
 .card {
     position: relative;
     overflow: hidden;
-
-    background: rgba(20,24,39,0.72);
-    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(20,24,39,.72);
+    border: 1px solid rgba(255,255,255,.07);
     border-radius: 18px;
-
     padding: 30px;
-
     backdrop-filter: blur(10px);
-
-    transition:
-        transform 0.3s,
-        border-color 0.3s,
-        box-shadow 0.3s;
-}
-
-.card::before {
-    content: "";
-    position: absolute;
-    width: 120px;
-    height: 120px;
-    background: #5865f2;
-    filter: blur(70px);
-    opacity: 0;
-    top: -60px;
-    right: -60px;
-    transition: 0.3s;
+    transition: .3s;
 }
 
 .card:hover {
     transform: translateY(-8px);
-    border-color: rgba(88,101,242,0.5);
-    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
-}
-
-.card:hover::before {
-    opacity: 0.3;
+    border-color: rgba(88,101,242,.5);
+    box-shadow: 0 15px 45px rgba(0,0,0,.3);
 }
 
 .card h3 {
@@ -326,73 +238,19 @@ section h2 {
     line-height: 1.6;
 }
 
-/* =========================
-   COMMANDS
-========================= */
-
-.commands-section {
-    max-width: 1000px;
+.command-section {
+    max-width: 950px;
     margin: auto;
 }
 
-.command-tabs {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-bottom: 35px;
+.command-category {
+    margin-bottom: 55px;
 }
 
-.command-tab {
-    padding: 13px 22px;
-    border-radius: 12px;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.06);
-    color: #aeb5d0;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.25s;
-}
-
-.command-tab:hover {
-    background: rgba(88,101,242,0.2);
-    color: white;
-    transform: translateY(-2px);
-}
-
-.command-tab.active {
-    background: #5865f2;
-    color: white;
-    border-color: #5865f2;
-    box-shadow: 0 8px 25px rgba(88,101,242,0.3);
-}
-
-.command-group {
-    display: none;
-}
-
-.command-group.active {
-    display: block;
-    animation: commandFade 0.35s ease;
-}
-
-@keyframes commandFade {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.permission-title {
-    text-align: center;
+.category-title {
+    font-size: 27px;
+    margin-bottom: 18px;
     color: #9da9ff;
-    margin-bottom: 20px;
-    font-size: 20px;
 }
 
 .command {
@@ -400,21 +258,18 @@ section h2 {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-
-    background: rgba(20,24,39,0.72);
-    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(20,24,39,.72);
+    border: 1px solid rgba(255,255,255,.07);
     border-radius: 12px;
-
     padding: 20px;
     margin-bottom: 12px;
-
-    transition: 0.25s;
+    transition: .25s;
 }
 
 .command:hover {
     transform: translateX(7px);
-    border-color: rgba(88,101,242,0.5);
-    background: rgba(30,35,58,0.85);
+    border-color: rgba(88,101,242,.5);
+    background: rgba(30,35,58,.85);
 }
 
 .command code {
@@ -429,6 +284,30 @@ section h2 {
     text-align: right;
 }
 
+.owner-box {
+    max-width: 950px;
+    margin: 0 auto 70px;
+    padding: 30px;
+    border-radius: 18px;
+    background: rgba(88,101,242,.10);
+    border: 1px solid rgba(88,101,242,.35);
+    text-align: center;
+}
+
+.owner-box h3 {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.owner-box p {
+    color: #aeb5d0;
+    line-height: 1.7;
+}
+
+.owner-box strong {
+    color: #9da9ff;
+}
+
 .more {
     text-align: center;
     color: #929ab7;
@@ -440,25 +319,15 @@ section h2 {
     color: #9da9ff;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
 footer {
     text-align: center;
     padding: 45px 20px;
     color: #6f7691;
-
-    border-top: 1px solid rgba(255,255,255,0.07);
-    background: rgba(10,12,24,0.7);
+    border-top: 1px solid rgba(255,255,255,.07);
+    background: rgba(10,12,24,.7);
 }
 
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
+@media (max-width:700px) {
     header {
         padding: 18px 5%;
     }
@@ -466,10 +335,6 @@ footer {
     nav a {
         margin-left: 12px;
         font-size: 14px;
-    }
-
-    .hero {
-        min-height: 80vh;
     }
 
     section {
@@ -488,17 +353,9 @@ footer {
     .command p {
         text-align: left;
     }
-
-    .command-tabs {
-        flex-direction: column;
-    }
-
-    .command-tab {
-        width: 100%;
-    }
 }
-
 </style>
+
 </head>
 
 <body>
@@ -508,361 +365,314 @@ footer {
     <div class="glow two"></div>
 </div>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
-
 <header>
-
     <div class="logo">
         🤖 <span>Prist</span>Bot
     </div>
 
-    <nav>
-        <a href="#features">Features</a>
-        <a href="#commands">Commands</a>
-    </nav>
+```
+<nav>
+    <a href="#features">Features</a>
+    <a href="#commands">Commands</a>
+    <a href="#updates">Updates</a>
+</nav>
+```
 
 </header>
 
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero">
-
     <div class="hero-content">
 
-        <div class="badge">
-            ⚡ Powerful Discord Bot
-        </div>
-
-        <h1>PristBot</h1>
-
-        <p>
-            Your Discord server's all-in-one bot.
-            Powerful moderation, tickets, applications,
-            announcements, server management, and more.
-        </p>
-
-        <div class="buttons">
-
-            <a
-                class="button"
-                href="https://discord.com/oauth2/authorize?client_id=1507054482372952254&permissions=8&integration_type=0&scope=bot"
-                target="_blank"
-            >
-                🤖 Add PristBot
-            </a>
-
-            <a
-                class="button secondary"
-                href="https://discord.gg/GWXkhgNWjB"
-                target="_blank"
-            >
-                💬 Join Discord
-            </a>
-
-        </div>
-
+```
+    <div class="badge">
+        ⚡ Powerful Discord Bot
     </div>
 
-</section>
+    <h1>PristBot</h1>
 
-<!-- =========================
-     FEATURES
-========================= -->
+    <p>
+        Your Discord server's all-in-one bot.
+        Powerful moderation, tickets, applications,
+        announcements, server management, and more.
+    </p>
+
+    <div class="buttons">
+
+        <a
+            class="button"
+            href="https://discord.com/oauth2/authorize?client_id=1507054482372952254&permissions=8&integration_type=0&scope=bot"
+            target="_blank"
+        >
+            🤖 Add PristBot
+        </a>
+
+        <a
+            class="button secondary"
+            href="https://discord.gg/GWXkhgNWjB"
+            target="_blank"
+        >
+            💬 Join Discord
+        </a>
+
+    </div>
+</div>
+```
+
+</section>
 
 <section id="features">
 
-    <h2>Features</h2>
+```
+<h2>Features</h2>
 
-    <div class="cards">
+<div class="cards">
 
-        <div class="card">
-            <h3>🎫 Ticket System</h3>
-            <p>
-                Create private support tickets and
-                let your staff help members quickly.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>📝 Applications</h3>
-            <p>
-                Build customizable applications with
-                up to 12 questions.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🛡️ Moderation</h3>
-            <p>
-                Warn, mute, unmute and manage members
-                with powerful moderation tools.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>📢 Announcements</h3>
-            <p>
-                Send important announcements to your
-                Discord communities.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🌎 Server Manager</h3>
-            <p>
-                Manage the servers connected to PristBot
-                from one convenient system.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>💤 AFK System</h3>
-            <p>
-                Let members set an AFK status and
-                automatically show their reason.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🔒 Underage Moderation</h3>
-            <p>
-                Moderation tools designed to help
-                server staff handle underage reports.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>⚡ More Coming</h3>
-            <p>
-                PristBot is constantly receiving
-                new features and improvements.
-            </p>
-        </div>
-
+    <div class="card">
+        <h3>🎫 Ticket System</h3>
+        <p>
+            Create private support tickets and let staff
+            help members quickly.
+        </p>
     </div>
 
-</section>
+    <div class="card">
+        <h3>📝 Applications</h3>
+        <p>
+            Create customizable applications for your server.
+        </p>
+    </div>
 
-<!-- =========================
-     COMMANDS
-========================= -->
+    <div class="card">
+        <h3>🛡️ Moderation</h3>
+        <p>
+            Powerful moderation tools for managing your community.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>📢 Announcements</h3>
+        <p>
+            Send important announcements throughout your communities.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>🌎 Server Management</h3>
+        <p>
+            Manage server settings and server-related features.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>💤 AFK System</h3>
+        <p>
+            Let members set an AFK reason and automatically notify
+            others when they are mentioned.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>🚫 Blocked Words</h3>
+        <p>
+            Manage blocked words and help keep your community clean.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>⚡ Constant Updates</h3>
+        <p>
+            PristBot is continuously receiving new commands,
+            improvements, and features.
+        </p>
+    </div>
+
+</div>
+```
+
+</section>
 
 <section id="commands">
 
-    <h2>Commands</h2>
+```
+<h2>Commands</h2>
 
-    <div class="commands-section">
+<div class="owner-box">
 
-        <div class="command-tabs">
+    <h3>👑 Global Owners</h3>
 
-            <button
-                class="command-tab active"
-                onclick="showCommands('member', this)"
-            >
-                👤 Member
-            </button>
+    <p>
+        Global Owners have access to <strong>every PristBot command</strong>,
+        including owner-only commands, moderation tools,
+        server management, announcements, configuration,
+        and all other available commands.
+    </p>
 
-            <button
-                class="command-tab"
-                onclick="showCommands('staff', this)"
-            >
-                🛡️ Staff
-            </button>
+</div>
 
-            <button
-                class="command-tab"
-                onclick="showCommands('owner', this)"
-            >
-                👑 Server Owner
-            </button>
+<div class="command-section">
 
-            <button
-                class="command-tab"
-                onclick="showCommands('global', this)"
-            >
-                🌎 Global Owner
-            </button>
+    <div class="command-category">
 
+        <div class="category-title">
+            👤 Member Commands
         </div>
 
-        <!-- =========================
-             MEMBER COMMANDS
-        ========================= -->
-
-        <div id="member" class="command-group active">
-
-            <div class="permission-title">
-                👤 Commands available to regular members
-            </div>
-
-            <div class="command">
-                <code>-commands</code>
-                <p>View available commands</p>
-            </div>
-
-            <div class="command">
-                <code>-afk</code>
-                <p>Set an AFK status</p>
-            </div>
-
-            <div class="command">
-                <code>-p</code>
-                <p>PristBot utility command</p>
-            </div>
-
-            <div class="command">
-                <code>-rules</code>
-                <p>View server rules</p>
-            </div>
-
+        <div class="command">
+            <code>-afk [reason]</code>
+            <p>Set your AFK status</p>
         </div>
 
-        <!-- =========================
-             STAFF COMMANDS
-        ========================= -->
-
-        <div id="staff" class="command-group">
-
-            <div class="permission-title">
-                🛡️ Commands available to staff
-            </div>
-
-            <div class="command">
-                <code>-warn</code>
-                <p>Warn a member</p>
-            </div>
-
-            <div class="command">
-                <code>-mute</code>
-                <p>Mute a member</p>
-            </div>
-
-            <div class="command">
-                <code>-unmute</code>
-                <p>Remove a member's mute</p>
-            </div>
-
-            <div class="command">
-                <code>-underage</code>
-                <p>Underage moderation command</p>
-            </div>
-
-            <div class="command">
-                <code>-ticketpanel</code>
-                <p>Post the ticket panel</p>
-            </div>
-
-            <div class="command">
-                <code>-applicationpanel</code>
-                <p>Post the application panel</p>
-            </div>
-
+        <div class="command">
+            <code>-commands</code>
+            <p>View available commands</p>
         </div>
 
-        <!-- =========================
-             SERVER OWNER COMMANDS
-        ========================= -->
-
-        <div id="owner" class="command-group">
-
-            <div class="permission-title">
-                👑 Commands available to server owners
-            </div>
-
-            <div class="command">
-                <code>-server</code>
-                <p>Open the server manager</p>
-            </div>
-
-            <div class="command">
-                <code>-applications</code>
-                <p>Application management panel</p>
-            </div>
-
-        </div>
-
-        <!-- =========================
-             GLOBAL OWNER COMMANDS
-        ========================= -->
-
-        <div id="global" class="command-group">
-
-            <div class="permission-title">
-                🌎 Commands available to PristBot Global Owners
-            </div>
-
-            <div class="command">
-                <code>-announce</code>
-                <p>Send an announcement across PristBot servers</p>
-            </div>
-
-        </div>
-
-        <div class="more">
-
-            <p>
-                More commands are being added to PristBot!
-            </p>
-
-            <p>
-                Use <strong>-commands</strong> in Discord
-                to view the complete command list.
-            </p>
-
+        <div class="command">
+            <code>-p</code>
+            <p>PristBot utility command</p>
         </div>
 
     </div>
 
+    <div class="command-category">
+
+        <div class="category-title">
+            🛡️ Staff Commands
+        </div>
+
+        <div class="command">
+            <code>-warn @user</code>
+            <p>Warn a member</p>
+        </div>
+
+        <div class="command">
+            <code>-mute @user</code>
+            <p>Mute a member</p>
+        </div>
+
+        <div class="command">
+            <code>-unmute @user</code>
+            <p>Remove a member's mute</p>
+        </div>
+
+        <div class="command">
+            <code>-underage</code>
+            <p>Handle an underage report</p>
+        </div>
+
+    </div>
+
+    <div class="command-category">
+
+        <div class="category-title">
+            👑 Owner Commands
+        </div>
+
+        <div class="command">
+            <code>-announce</code>
+            <p>Send an announcement</p>
+        </div>
+
+        <div class="command">
+            <code>-server</code>
+            <p>Open the server manager</p>
+        </div>
+
+        <div class="command">
+            <code>-applications</code>
+            <p>Manage applications</p>
+        </div>
+
+        <div class="command">
+            <code>-applicationpanel</code>
+            <p>Post the application panel</p>
+        </div>
+
+        <div class="command">
+            <code>-ticketpanel</code>
+            <p>Post the ticket panel</p>
+        </div>
+
+    </div>
+
+    <div class="command-category">
+
+        <div class="category-title">
+            🌎 Global Owner
+        </div>
+
+        <div class="command">
+            <code>ALL COMMANDS</code>
+            <p>Global Owners can use every PristBot command</p>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="more">
+
+    <p>
+        More commands are available inside PristBot.
+    </p>
+
+    <p>
+        Use <strong>-commands</strong> in Discord to view
+        the complete list available to you.
+    </p>
+
+</div>
+```
+
 </section>
 
-<!-- =========================
-     FOOTER
-========================= -->
+<section id="updates">
+
+```
+<h2>Updates</h2>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>🚀 New Commands</h3>
+        <p>
+            PristBot continues to receive new commands and
+            improvements.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>📢 Update System</h3>
+        <p>
+            PristBot can post update information to the
+            main server automatically.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>🔧 Improvements</h3>
+        <p>
+            Existing systems are regularly improved,
+            fixed, and updated.
+        </p>
+    </div>
+
+</div>
+```
+
+</section>
 
 <footer>
 
-    🤖 PristBot
+```
+🤖 PristBot
 
-    <br><br>
+<br><br>
 
-    © 2026 PristBot. All rights reserved.
+© 2026 PristBot. All rights reserved.
+```
 
 </footer>
 
-<!-- =========================
-     COMMAND TAB SCRIPT
-========================= -->
-
-<script>
-
-function showCommands(section, button) {
-
-    const groups = document.querySelectorAll(".command-group");
-    const tabs = document.querySelectorAll(".command-tab");
-
-    groups.forEach(group => {
-        group.classList.remove("active");
-    });
-
-    tabs.forEach(tab => {
-        tab.classList.remove("active");
-    });
-
-    const selectedGroup = document.getElementById(section);
-
-    if (selectedGroup) {
-        selectedGroup.classList.add("active");
-    }
-
-    button.classList.add("active");
-}
-
-</script>
-
 </body>
 </html>
-```
