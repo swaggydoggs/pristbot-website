@@ -330,9 +330,69 @@ section h2 {
    COMMANDS
 ========================= */
 
-.commands {
-    max-width: 850px;
+.commands-section {
+    max-width: 1000px;
     margin: auto;
+}
+
+.command-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 35px;
+}
+
+.command-tab {
+    padding: 13px 22px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.06);
+    color: #aeb5d0;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.command-tab:hover {
+    background: rgba(88,101,242,0.2);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.command-tab.active {
+    background: #5865f2;
+    color: white;
+    border-color: #5865f2;
+    box-shadow: 0 8px 25px rgba(88,101,242,0.3);
+}
+
+.command-group {
+    display: none;
+}
+
+.command-group.active {
+    display: block;
+    animation: commandFade 0.35s ease;
+}
+
+@keyframes commandFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.permission-title {
+    text-align: center;
+    color: #9da9ff;
+    margin-bottom: 20px;
+    font-size: 20px;
 }
 
 .command {
@@ -428,6 +488,14 @@ footer {
     .command p {
         text-align: left;
     }
+
+    .command-tabs {
+        flex-direction: column;
+    }
+
+    .command-tab {
+        width: 100%;
+    }
 }
 
 </style>
@@ -439,7 +507,6 @@ footer {
     <div class="glow one"></div>
     <div class="glow two"></div>
 </div>
-
 
 <!-- =========================
      NAVIGATION
@@ -457,7 +524,6 @@ footer {
     </nav>
 
 </header>
-
 
 <!-- =========================
      HERO
@@ -502,7 +568,6 @@ footer {
     </div>
 
 </section>
-
 
 <!-- =========================
      FEATURES
@@ -582,7 +647,6 @@ footer {
 
 </section>
 
-
 <!-- =========================
      COMMANDS
 ========================= -->
@@ -591,80 +655,169 @@ footer {
 
     <h2>Commands</h2>
 
-    <div class="commands">
+    <div class="commands-section">
 
-        <div class="command">
-            <code>-applications</code>
-            <p>Application management panel</p>
+        <div class="command-tabs">
+
+            <button
+                class="command-tab active"
+                onclick="showCommands('member', this)"
+            >
+                👤 Member
+            </button>
+
+            <button
+                class="command-tab"
+                onclick="showCommands('staff', this)"
+            >
+                🛡️ Staff
+            </button>
+
+            <button
+                class="command-tab"
+                onclick="showCommands('owner', this)"
+            >
+                👑 Server Owner
+            </button>
+
+            <button
+                class="command-tab"
+                onclick="showCommands('global', this)"
+            >
+                🌎 Global Owner
+            </button>
+
         </div>
 
-        <div class="command">
-            <code>-applicationpanel</code>
-            <p>Post the application panel</p>
+        <!-- =========================
+             MEMBER COMMANDS
+        ========================= -->
+
+        <div id="member" class="command-group active">
+
+            <div class="permission-title">
+                👤 Commands available to regular members
+            </div>
+
+            <div class="command">
+                <code>-commands</code>
+                <p>View available commands</p>
+            </div>
+
+            <div class="command">
+                <code>-afk</code>
+                <p>Set an AFK status</p>
+            </div>
+
+            <div class="command">
+                <code>-p</code>
+                <p>PristBot utility command</p>
+            </div>
+
+            <div class="command">
+                <code>-rules</code>
+                <p>View server rules</p>
+            </div>
+
         </div>
 
-        <div class="command">
-            <code>-ticketpanel</code>
-            <p>Post the ticket panel</p>
+        <!-- =========================
+             STAFF COMMANDS
+        ========================= -->
+
+        <div id="staff" class="command-group">
+
+            <div class="permission-title">
+                🛡️ Commands available to staff
+            </div>
+
+            <div class="command">
+                <code>-warn</code>
+                <p>Warn a member</p>
+            </div>
+
+            <div class="command">
+                <code>-mute</code>
+                <p>Mute a member</p>
+            </div>
+
+            <div class="command">
+                <code>-unmute</code>
+                <p>Remove a member's mute</p>
+            </div>
+
+            <div class="command">
+                <code>-underage</code>
+                <p>Underage moderation command</p>
+            </div>
+
+            <div class="command">
+                <code>-ticketpanel</code>
+                <p>Post the ticket panel</p>
+            </div>
+
+            <div class="command">
+                <code>-applicationpanel</code>
+                <p>Post the application panel</p>
+            </div>
+
         </div>
 
-        <div class="command">
-            <code>-server</code>
-            <p>Open the server manager</p>
+        <!-- =========================
+             SERVER OWNER COMMANDS
+        ========================= -->
+
+        <div id="owner" class="command-group">
+
+            <div class="permission-title">
+                👑 Commands available to server owners
+            </div>
+
+            <div class="command">
+                <code>-server</code>
+                <p>Open the server manager</p>
+            </div>
+
+            <div class="command">
+                <code>-applications</code>
+                <p>Application management panel</p>
+            </div>
+
         </div>
 
-        <div class="command">
-            <code>-announce</code>
-            <p>Send an announcement</p>
+        <!-- =========================
+             GLOBAL OWNER COMMANDS
+        ========================= -->
+
+        <div id="global" class="command-group">
+
+            <div class="permission-title">
+                🌎 Commands available to PristBot Global Owners
+            </div>
+
+            <div class="command">
+                <code>-announce</code>
+                <p>Send an announcement across PristBot servers</p>
+            </div>
+
         </div>
 
-        <div class="command">
-            <code>-warn</code>
-            <p>Warn a member</p>
+        <div class="more">
+
+            <p>
+                More commands are being added to PristBot!
+            </p>
+
+            <p>
+                Use <strong>-commands</strong> in Discord
+                to view the complete command list.
+            </p>
+
         </div>
-
-        <div class="command">
-            <code>-mute</code>
-            <p>Mute a member</p>
-        </div>
-
-        <div class="command">
-            <code>-unmute</code>
-            <p>Remove a member's mute</p>
-        </div>
-
-        <div class="command">
-            <code>-afk</code>
-            <p>Set an AFK status</p>
-        </div>
-
-        <div class="command">
-            <code>-underage</code>
-            <p>Underage moderation command</p>
-        </div>
-
-        <div class="command">
-            <code>-p</code>
-            <p>PristBot utility command</p>
-        </div>
-
-    </div>
-
-    <div class="more">
-
-        <p>
-            And more commands are available!
-        </p>
-
-        <p>
-            Use <strong>-commands</strong> in Discord
-            to view the complete command list.
-        </p>
 
     </div>
 
 </section>
-
 
 <!-- =========================
      FOOTER
@@ -680,6 +833,35 @@ footer {
 
 </footer>
 
+<!-- =========================
+     COMMAND TAB SCRIPT
+========================= -->
+
+<script>
+
+function showCommands(section, button) {
+
+    const groups = document.querySelectorAll(".command-group");
+    const tabs = document.querySelectorAll(".command-tab");
+
+    groups.forEach(group => {
+        group.classList.remove("active");
+    });
+
+    tabs.forEach(tab => {
+        tab.classList.remove("active");
+    });
+
+    const selectedGroup = document.getElementById(section);
+
+    if (selectedGroup) {
+        selectedGroup.classList.add("active");
+    }
+
+    button.classList.add("active");
+}
+
+</script>
 
 </body>
 </html>
