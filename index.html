@@ -1,0 +1,370 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PristBot | Discord Bot</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0b0d17;
+            color: white;
+        }
+
+        header {
+            background: #111528;
+            border-bottom: 1px solid #252a40;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: #b9bfd6;
+            text-decoration: none;
+            margin-left: 25px;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 110px 20px;
+            background: linear-gradient(#171b35, #0b0d17);
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            margin: 0 0 20px;
+        }
+
+        .hero p {
+            color: #b9bfd6;
+            font-size: 20px;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            margin-top: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #5865f2;
+            color: white;
+            text-decoration: none;
+            padding: 15px 28px;
+            margin: 8px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            opacity: 0.85;
+        }
+
+        .secondary {
+            background: #252a40;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 45px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            background: #141827;
+            border: 1px solid #252a40;
+            border-radius: 15px;
+            padding: 30px;
+        }
+
+        .card:hover {
+            border-color: #5865f2;
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: #9da4c2;
+            line-height: 1.5;
+        }
+
+        .commands {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .command {
+            background: #141827;
+            border: 1px solid #252a40;
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 12px;
+        }
+
+        .command code {
+            color: #8ea0ff;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .command p {
+            color: #9da4c2;
+            margin: 8px 0 0;
+        }
+
+        .more {
+            text-align: center;
+            margin-top: 30px;
+            color: #9da4c2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 35px;
+            background: #101321;
+            color: #777f9d;
+            border-top: 1px solid #252a40;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav a {
+                margin: 0 8px;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🤖 PristBot</div>
+
+    <nav>
+        <a href="#features">Features</a>
+        <a href="#commands">Commands</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <h1>🤖 PristBot</h1>
+
+    <p>
+        Your Discord server's all-in-one bot.
+        Powerful moderation, tickets, applications,
+        announcements, and server management.
+    </p>
+
+    <div class="buttons">
+
+        <a
+            class="button"
+            href="https://discord.com/oauth2/authorize?client_id=1507054482372952254&permissions=8&integration_type=0&scope=bot"
+            target="_blank"
+        >
+            Add PristBot
+        </a>
+
+        <a
+            class="button secondary"
+            href="https://discord.gg/GWXkhgNWjB"
+            target="_blank"
+        >
+            Join Discord
+        </a>
+
+    </div>
+
+</section>
+
+
+<section id="features">
+
+    <h2>Features</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>🎫 Ticket System</h3>
+            <p>
+                Let members create private support tickets
+                and get help from your staff team.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📝 Applications</h3>
+            <p>
+                Create customizable staff applications
+                with up to 12 questions.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🛡️ Moderation</h3>
+            <p>
+                Tools to help keep your Discord server
+                organized and moderated.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📢 Announcements</h3>
+            <p>
+                Send announcements across your servers.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🌎 Server Manager</h3>
+            <p>
+                Manage servers connected to PristBot.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>⚡ More Coming</h3>
+            <p>
+                PristBot is constantly being updated
+                with new features.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<section id="commands">
+
+    <h2>Commands</h2>
+
+    <div class="commands">
+
+        <div class="command">
+            <code>-applications</code>
+            <p>Open the application management panel.</p>
+        </div>
+
+        <div class="command">
+            <code>-applicationpanel</code>
+            <p>Post the application panel.</p>
+        </div>
+
+        <div class="command">
+            <code>-ticketpanel</code>
+            <p>Post the ticket panel.</p>
+        </div>
+
+        <div class="command">
+            <code>-server</code>
+            <p>Open the PristBot server manager.</p>
+        </div>
+
+        <div class="command">
+            <code>-announce</code>
+            <p>Send an announcement across your servers.</p>
+        </div>
+
+        <div class="command">
+            <code>-warn</code>
+            <p>Warn a member.</p>
+        </div>
+
+        <div class="command">
+            <code>-mute</code>
+            <p>Mute a member.</p>
+        </div>
+
+        <div class="command">
+            <code>-unmute</code>
+            <p>Remove a member's mute.</p>
+        </div>
+
+        <div class="command">
+            <code>-afk</code>
+            <p>Set an AFK status and reason.</p>
+        </div>
+
+        <div class="command">
+            <code>-underage</code>
+            <p>Use the underage moderation command.</p>
+        </div>
+
+        <div class="command">
+            <code>-p</code>
+            <p>PristBot utility command.</p>
+        </div>
+
+    </div>
+
+    <div class="more">
+        <p>
+            Don't see the command you're looking for?
+        </p>
+
+        <p>
+            Use <strong>-commands</strong> in Discord
+            to see the complete command list.
+        </p>
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 PristBot. All rights reserved.
+</footer>
+
+</body>
+</html>
+```
