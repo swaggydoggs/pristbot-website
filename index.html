@@ -2,230 +2,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PristBot | Discord Bot</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<title>PristBot | Discord Bot</title>
 
-        html {
-            scroll-behavior: smooth;
-        }
+<style>
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: #0b0d17;
-            color: white;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        header {
-            background: #111528;
-            border-bottom: 1px solid #252a40;
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .logo {
-            font-size: 25px;
-            font-weight: bold;
-        }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #070914;
+    color: white;
+    overflow-x: hidden;
+}
 
-        nav a {
-            color: #b9bfd6;
-            text-decoration: none;
-            margin-left: 25px;
-        }
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
 
-        nav a:hover {
-            color: white;
-        }
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(88,101,242,0.18), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(145,70,255,0.16), transparent 30%),
+        #070914;
+}
 
-        .hero {
-            text-align: center;
-            padding: 110px 20px;
-            background: linear-gradient(#171b35, #0b0d17);
-        }
+.glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.25;
+    animation: float 10s ease-in-out infinite;
+}
 
-        .hero h1 {
-            font-size: 64px;
-            margin: 0 0 20px;
-        }
+.glow.one {
+    background: #5865f2;
+    left: -100px;
+    top: 100px;
+}
 
-        .hero p {
-            color: #b9bfd6;
-            font-size: 20px;
-            max-width: 650px;
-            margin: auto;
-            line-height: 1.6;
-        }
+.glow.two {
+    background: #8a4fff;
+    right: -100px;
+    top: 500px;
+    animation-delay: 3s;
+}
 
-        .buttons {
-            margin-top: 35px;
-        }
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
 
-        .button {
-            display: inline-block;
-            background: #5865f2;
-            color: white;
-            text-decoration: none;
-            padding: 15px 28px;
-            margin: 8px;
-            border-radius: 10px;
-            font-weight: bold;
-        }
+    50% {
+        transform: translateY(-60px) translateX(30px);
+    }
+}
 
-        .button:hover {
-            opacity: 0.85;
-        }
+/* =========================
+   NAVBAR
+========================= */
 
-        .secondary {
-            background: #252a40;
-        }
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        section {
-            padding: 80px 8%;
-        }
+    background: rgba(10, 12, 27, 0.78);
+    backdrop-filter: blur(15px);
 
-        section h2 {
-            text-align: center;
-            font-size: 38px;
-            margin-bottom: 45px;
-        }
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
 
-        .card {
-            background: #141827;
-            border: 1px solid #252a40;
-            border-radius: 15px;
-            padding: 30px;
-        }
+.logo span {
+    color: #7289ff;
+}
 
-        .card:hover {
-            border-color: #5865f2;
-        }
+nav a {
+    color: #aeb5d0;
+    text-decoration: none;
+    margin-left: 28px;
+    transition: 0.25s;
+}
 
-        .card h3 {
-            margin-top: 0;
-            font-size: 21px;
-        }
+nav a:hover {
+    color: white;
+}
 
-        .card p {
-            color: #9da4c2;
-            line-height: 1.5;
-        }
+/* =========================
+   HERO
+========================= */
 
-        .commands {
-            max-width: 850px;
-            margin: auto;
-        }
+.hero {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+}
 
-        .command {
-            background: #141827;
-            border: 1px solid #252a40;
-            border-radius: 10px;
-            padding: 18px;
-            margin-bottom: 12px;
-        }
+.hero-content {
+    max-width: 850px;
+    animation: heroEnter 1s ease forwards;
+}
 
-        .command code {
-            color: #8ea0ff;
-            font-size: 17px;
-            font-weight: bold;
-        }
+@keyframes heroEnter {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
 
-        .command p {
-            color: #9da4c2;
-            margin: 8px 0 0;
-        }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-        .more {
-            text-align: center;
-            margin-top: 30px;
-            color: #9da4c2;
-        }
+.badge {
+    display: inline-block;
+    padding: 9px 17px;
+    border-radius: 999px;
+    background: rgba(88,101,242,0.12);
+    border: 1px solid rgba(88,101,242,0.35);
+    color: #9da9ff;
+    margin-bottom: 25px;
+    animation: pulse 3s infinite;
+}
 
-        footer {
-            text-align: center;
-            padding: 35px;
-            background: #101321;
-            color: #777f9d;
-            border-top: 1px solid #252a40;
-        }
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 rgba(88,101,242,0);
+    }
 
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
+    50% {
+        box-shadow: 0 0 30px rgba(88,101,242,0.25);
+    }
+}
 
-            nav a {
-                margin: 0 8px;
-            }
+.hero h1 {
+    font-size: clamp(50px, 9vw, 90px);
+    line-height: 1;
+    margin-bottom: 25px;
 
-            .hero h1 {
-                font-size: 44px;
-            }
-        }
-    </style>
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #8794ff,
+        #b16cff,
+        #ffffff
+    );
+
+    background-size: 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 300%;
+    }
+}
+
+.hero p {
+    color: #aab1cc;
+    font-size: 20px;
+    line-height: 1.7;
+    max-width: 680px;
+    margin: auto;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.buttons {
+    margin-top: 40px;
+}
+
+.button {
+    display: inline-block;
+    padding: 16px 30px;
+    margin: 8px;
+
+    border-radius: 12px;
+
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+
+    background: #5865f2;
+
+    box-shadow: 0 8px 30px rgba(88,101,242,0.25);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s,
+        background 0.25s;
+}
+
+.button:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 15px 40px rgba(88,101,242,0.4);
+    background: #6975ff;
+}
+
+.secondary {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: none;
+}
+
+.secondary:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    padding: 100px 8%;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 45px;
+    margin-bottom: 55px;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+
+    background: rgba(20,24,39,0.72);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 18px;
+
+    padding: 30px;
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.3s,
+        border-color 0.3s,
+        box-shadow 0.3s;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: #5865f2;
+    filter: blur(70px);
+    opacity: 0;
+    top: -60px;
+    right: -60px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(88,101,242,0.5);
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+}
+
+.card:hover::before {
+    opacity: 0.3;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #9ca4c1;
+    line-height: 1.6;
+}
+
+/* =========================
+   COMMANDS
+========================= */
+
+.commands {
+    max-width: 850px;
+    margin: auto;
+}
+
+.command {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: rgba(20,24,39,0.72);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+
+    padding: 20px;
+    margin-bottom: 12px;
+
+    transition: 0.25s;
+}
+
+.command:hover {
+    transform: translateX(7px);
+    border-color: rgba(88,101,242,0.5);
+    background: rgba(30,35,58,0.85);
+}
+
+.command code {
+    color: #91a0ff;
+    font-size: 17px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.command p {
+    color: #929ab7;
+    text-align: right;
+}
+
+.more {
+    text-align: center;
+    color: #929ab7;
+    margin-top: 35px;
+    line-height: 1.8;
+}
+
+.more strong {
+    color: #9da9ff;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 45px 20px;
+    color: #6f7691;
+
+    border-top: 1px solid rgba(255,255,255,0.07);
+    background: rgba(10,12,24,0.7);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    header {
+        padding: 18px 5%;
+    }
+
+    nav a {
+        margin-left: 12px;
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 80vh;
+    }
+
+    section {
+        padding: 75px 5%;
+    }
+
+    section h2 {
+        font-size: 35px;
+    }
+
+    .command {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .command p {
+        text-align: left;
+    }
+}
+
+</style>
 </head>
 
 <body>
 
+<div class="background">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+</div>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <header>
-    <div class="logo">🤖 PristBot</div>
+
+    <div class="logo">
+        🤖 <span>Prist</span>Bot
+    </div>
 
     <nav>
         <a href="#features">Features</a>
         <a href="#commands">Commands</a>
     </nav>
+
 </header>
 
 
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
 
-    <h1>🤖 PristBot</h1>
+    <div class="hero-content">
 
-    <p>
-        Your Discord server's all-in-one bot.
-        Powerful moderation, tickets, applications,
-        announcements, and server management.
-    </p>
+        <div class="badge">
+            ⚡ Powerful Discord Bot
+        </div>
 
-    <div class="buttons">
+        <h1>PristBot</h1>
 
-        <a
-            class="button"
-            href="https://discord.com/oauth2/authorize?client_id=1507054482372952254&permissions=8&integration_type=0&scope=bot"
-            target="_blank"
-        >
-            Add PristBot
-        </a>
+        <p>
+            Your Discord server's all-in-one bot.
+            Powerful moderation, tickets, applications,
+            announcements, server management, and more.
+        </p>
 
-        <a
-            class="button secondary"
-            href="https://discord.gg/GWXkhgNWjB"
-            target="_blank"
-        >
-            Join Discord
-        </a>
+        <div class="buttons">
+
+            <a
+                class="button"
+                href="https://discord.com/oauth2/authorize?client_id=1507054482372952254&permissions=8&integration_type=0&scope=bot"
+                target="_blank"
+            >
+                🤖 Add PristBot
+            </a>
+
+            <a
+                class="button secondary"
+                href="https://discord.gg/GWXkhgNWjB"
+                target="_blank"
+            >
+                💬 Join Discord
+            </a>
+
+        </div>
 
     </div>
 
 </section>
 
+
+<!-- =========================
+     FEATURES
+========================= -->
 
 <section id="features">
 
@@ -236,46 +517,64 @@
         <div class="card">
             <h3>🎫 Ticket System</h3>
             <p>
-                Let members create private support tickets
-                and get help from your staff team.
+                Create private support tickets and
+                let your staff help members quickly.
             </p>
         </div>
 
         <div class="card">
             <h3>📝 Applications</h3>
             <p>
-                Create customizable staff applications
-                with up to 12 questions.
+                Build customizable applications with
+                up to 12 questions.
             </p>
         </div>
 
         <div class="card">
             <h3>🛡️ Moderation</h3>
             <p>
-                Tools to help keep your Discord server
-                organized and moderated.
+                Warn, mute, unmute and manage members
+                with powerful moderation tools.
             </p>
         </div>
 
         <div class="card">
             <h3>📢 Announcements</h3>
             <p>
-                Send announcements across your servers.
+                Send important announcements to your
+                Discord communities.
             </p>
         </div>
 
         <div class="card">
             <h3>🌎 Server Manager</h3>
             <p>
-                Manage servers connected to PristBot.
+                Manage the servers connected to PristBot
+                from one convenient system.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>💤 AFK System</h3>
+            <p>
+                Let members set an AFK status and
+                automatically show their reason.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🔒 Underage Moderation</h3>
+            <p>
+                Moderation tools designed to help
+                server staff handle underage reports.
             </p>
         </div>
 
         <div class="card">
             <h3>⚡ More Coming</h3>
             <p>
-                PristBot is constantly being updated
-                with new features.
+                PristBot is constantly receiving
+                new features and improvements.
             </p>
         </div>
 
@@ -283,6 +582,10 @@
 
 </section>
 
+
+<!-- =========================
+     COMMANDS
+========================= -->
 
 <section id="commands">
 
@@ -292,78 +595,91 @@
 
         <div class="command">
             <code>-applications</code>
-            <p>Open the application management panel.</p>
+            <p>Application management panel</p>
         </div>
 
         <div class="command">
             <code>-applicationpanel</code>
-            <p>Post the application panel.</p>
+            <p>Post the application panel</p>
         </div>
 
         <div class="command">
             <code>-ticketpanel</code>
-            <p>Post the ticket panel.</p>
+            <p>Post the ticket panel</p>
         </div>
 
         <div class="command">
             <code>-server</code>
-            <p>Open the PristBot server manager.</p>
+            <p>Open the server manager</p>
         </div>
 
         <div class="command">
             <code>-announce</code>
-            <p>Send an announcement across your servers.</p>
+            <p>Send an announcement</p>
         </div>
 
         <div class="command">
             <code>-warn</code>
-            <p>Warn a member.</p>
+            <p>Warn a member</p>
         </div>
 
         <div class="command">
             <code>-mute</code>
-            <p>Mute a member.</p>
+            <p>Mute a member</p>
         </div>
 
         <div class="command">
             <code>-unmute</code>
-            <p>Remove a member's mute.</p>
+            <p>Remove a member's mute</p>
         </div>
 
         <div class="command">
             <code>-afk</code>
-            <p>Set an AFK status and reason.</p>
+            <p>Set an AFK status</p>
         </div>
 
         <div class="command">
             <code>-underage</code>
-            <p>Use the underage moderation command.</p>
+            <p>Underage moderation command</p>
         </div>
 
         <div class="command">
             <code>-p</code>
-            <p>PristBot utility command.</p>
+            <p>PristBot utility command</p>
         </div>
 
     </div>
 
     <div class="more">
+
         <p>
-            Don't see the command you're looking for?
+            And more commands are available!
         </p>
 
         <p>
             Use <strong>-commands</strong> in Discord
-            to see the complete command list.
+            to view the complete command list.
         </p>
+
     </div>
 
 </section>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
+
+    🤖 PristBot
+
+    <br><br>
+
     © 2026 PristBot. All rights reserved.
+
 </footer>
+
 
 </body>
 </html>
