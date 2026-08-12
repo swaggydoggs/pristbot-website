@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -238,6 +239,101 @@ section h2 {
     line-height: 1.6;
 }
 
+/* PARTNERSHIP */
+
+.partnership-section {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.partnership-intro {
+    max-width: 720px;
+    margin: -25px auto 45px;
+    text-align: center;
+    color: #9ca4c1;
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+.partnership-card {
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin: auto;
+    padding: 45px;
+    border-radius: 22px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(88,101,242,.16),
+            rgba(145,70,255,.10)
+        ),
+        rgba(20,24,39,.75);
+    border: 1px solid rgba(88,101,242,.35);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    transition: .3s;
+}
+
+.partnership-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(88,101,242,.65);
+    box-shadow: 0 25px 70px rgba(88,101,242,.16);
+}
+
+.partnership-card::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    right: -100px;
+    top: -100px;
+    border-radius: 50%;
+    background: #5865f2;
+    filter: blur(100px);
+    opacity: .15;
+}
+
+.partnership-card h3 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.partnership-card > p {
+    color: #aeb5d0;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+.partnership-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.partnership-item {
+    padding: 18px;
+    border-radius: 13px;
+    background: rgba(255,255,255,.045);
+    border: 1px solid rgba(255,255,255,.07);
+}
+
+.partnership-item strong {
+    display: block;
+    margin-bottom: 6px;
+    color: #9da9ff;
+}
+
+.partnership-item span {
+    color: #929ab7;
+    line-height: 1.5;
+}
+
+.partnership-button {
+    text-align: center;
+}
+
 .command-section {
     max-width: 950px;
     margin: auto;
@@ -353,6 +449,10 @@ footer {
     .command p {
         text-align: left;
     }
+
+    .partnership-card {
+        padding: 30px 22px;
+    }
 }
 </style>
 
@@ -366,313 +466,386 @@ footer {
 </div>
 
 <header>
+
     <div class="logo">
         🤖 <span>Prist</span>Bot
     </div>
 
-```
-<nav>
-    <a href="#features">Features</a>
-    <a href="#commands">Commands</a>
-    <a href="#updates">Updates</a>
-</nav>
-```
+    <nav>
+        <a href="#features">Features</a>
+        <a href="#commands">Commands</a>
+        <a href="#partnerships">Partnerships</a>
+        <a href="#updates">Updates</a>
+    </nav>
 
 </header>
 
 <section class="hero">
+
     <div class="hero-content">
 
-```
-    <div class="badge">
-        ⚡ Powerful Discord Bot
+        <div class="badge">
+            ⚡ Powerful Discord Bot
+        </div>
+
+        <h1>PristBot</h1>
+
+        <p>
+            Your Discord server's all-in-one bot.
+            Powerful moderation, tickets, applications,
+            announcements, server management, and more.
+        </p>
+
+        <div class="buttons">
+
+            <a
+                class="button"
+                href="https://discord.com/oauth2/authorize?client_id=1507054482372952254&permissions=8&integration_type=0&scope=bot"
+                target="_blank"
+            >
+                🤖 Add PristBot
+            </a>
+
+            <a
+                class="button secondary"
+                href="https://discord.gg/GWXkhgNWjB"
+                target="_blank"
+            >
+                💬 Join Discord
+            </a>
+
+        </div>
+
     </div>
-
-    <h1>PristBot</h1>
-
-    <p>
-        Your Discord server's all-in-one bot.
-        Powerful moderation, tickets, applications,
-        announcements, server management, and more.
-    </p>
-
-    <div class="buttons">
-
-        <a
-            class="button"
-            href="https://discord.com/oauth2/authorize?client_id=1507054482372952254&permissions=8&integration_type=0&scope=bot"
-            target="_blank"
-        >
-            🤖 Add PristBot
-        </a>
-
-        <a
-            class="button secondary"
-            href="https://discord.gg/GWXkhgNWjB"
-            target="_blank"
-        >
-            💬 Join Discord
-        </a>
-
-    </div>
-</div>
-```
 
 </section>
 
 <section id="features">
 
-```
-<h2>Features</h2>
+    <h2>Features</h2>
 
-<div class="cards">
+    <div class="cards">
 
-    <div class="card">
-        <h3>🎫 Ticket System</h3>
-        <p>
-            Create private support tickets and let staff
-            help members quickly.
-        </p>
+        <div class="card">
+            <h3>🎫 Ticket System</h3>
+            <p>
+                Create private support tickets and let staff
+                help members quickly.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📝 Applications</h3>
+            <p>
+                Create customizable applications for your server.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🛡️ Moderation</h3>
+            <p>
+                Powerful moderation tools for managing your community.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📢 Announcements</h3>
+            <p>
+                Send important announcements throughout your communities.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🌎 Server Management</h3>
+            <p>
+                Manage server settings and server-related features.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>💤 AFK System</h3>
+            <p>
+                Let members set an AFK reason and automatically notify
+                others when they are mentioned.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🚫 Blocked Words</h3>
+            <p>
+                Manage blocked words and help keep your community clean.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>⚡ Constant Updates</h3>
+            <p>
+                PristBot is continuously receiving new commands,
+                improvements, and features.
+            </p>
+        </div>
+
     </div>
-
-    <div class="card">
-        <h3>📝 Applications</h3>
-        <p>
-            Create customizable applications for your server.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>🛡️ Moderation</h3>
-        <p>
-            Powerful moderation tools for managing your community.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>📢 Announcements</h3>
-        <p>
-            Send important announcements throughout your communities.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>🌎 Server Management</h3>
-        <p>
-            Manage server settings and server-related features.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>💤 AFK System</h3>
-        <p>
-            Let members set an AFK reason and automatically notify
-            others when they are mentioned.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>🚫 Blocked Words</h3>
-        <p>
-            Manage blocked words and help keep your community clean.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>⚡ Constant Updates</h3>
-        <p>
-            PristBot is continuously receiving new commands,
-            improvements, and features.
-        </p>
-    </div>
-
-</div>
-```
 
 </section>
 
 <section id="commands">
 
-```
-<h2>Commands</h2>
+    <h2>Commands</h2>
 
-<div class="owner-box">
+    <div class="owner-box">
 
-    <h3>👑 Global Owners</h3>
+        <h3>👑 Global Owners</h3>
 
-    <p>
-        Global Owners have access to <strong>every PristBot command</strong>,
-        including owner-only commands, moderation tools,
-        server management, announcements, configuration,
-        and all other available commands.
-    </p>
+        <p>
+            Global Owners have access to <strong>every PristBot command</strong>,
+            including owner-only commands, moderation tools,
+            server management, announcements, configuration,
+            and all other available commands.
+        </p>
 
-</div>
+    </div>
 
-<div class="command-section">
+    <div class="command-section">
 
-    <div class="command-category">
+        <div class="command-category">
 
-        <div class="category-title">
-            👤 Member Commands
+            <div class="category-title">
+                👤 Member Commands
+            </div>
+
+            <div class="command">
+                <code>-afk [reason]</code>
+                <p>Set your AFK status</p>
+            </div>
+
+            <div class="command">
+                <code>-commands</code>
+                <p>View available commands</p>
+            </div>
+
+            <div class="command">
+                <code>-p</code>
+                <p>PristBot utility command</p>
+            </div>
+
         </div>
 
-        <div class="command">
-            <code>-afk [reason]</code>
-            <p>Set your AFK status</p>
+        <div class="command-category">
+
+            <div class="category-title">
+                🛡️ Staff Commands
+            </div>
+
+            <div class="command">
+                <code>-warn @user</code>
+                <p>Warn a member</p>
+            </div>
+
+            <div class="command">
+                <code>-mute @user</code>
+                <p>Mute a member</p>
+            </div>
+
+            <div class="command">
+                <code>-unmute @user</code>
+                <p>Remove a member's mute</p>
+            </div>
+
+            <div class="command">
+                <code>-underage</code>
+                <p>Handle an underage report</p>
+            </div>
+
         </div>
 
-        <div class="command">
-            <code>-commands</code>
-            <p>View available commands</p>
+        <div class="command-category">
+
+            <div class="category-title">
+                👑 Owner Commands
+            </div>
+
+            <div class="command">
+                <code>-announce</code>
+                <p>Send an announcement</p>
+            </div>
+
+            <div class="command">
+                <code>-server</code>
+                <p>Open the server manager</p>
+            </div>
+
+            <div class="command">
+                <code>-applications</code>
+                <p>Manage applications</p>
+            </div>
+
+            <div class="command">
+                <code>-applicationpanel</code>
+                <p>Post the application panel</p>
+            </div>
+
+            <div class="command">
+                <code>-ticketpanel</code>
+                <p>Post the ticket panel</p>
+            </div>
+
         </div>
 
-        <div class="command">
-            <code>-p</code>
-            <p>PristBot utility command</p>
+        <div class="command-category">
+
+            <div class="category-title">
+                🌎 Global Owner
+            </div>
+
+            <div class="command">
+                <code>ALL COMMANDS</code>
+                <p>Global Owners can use every PristBot command</p>
+            </div>
+
         </div>
 
     </div>
 
-    <div class="command-category">
+    <div class="more">
 
-        <div class="category-title">
-            🛡️ Staff Commands
-        </div>
+        <p>
+            More commands are available inside PristBot.
+        </p>
 
-        <div class="command">
-            <code>-warn @user</code>
-            <p>Warn a member</p>
-        </div>
-
-        <div class="command">
-            <code>-mute @user</code>
-            <p>Mute a member</p>
-        </div>
-
-        <div class="command">
-            <code>-unmute @user</code>
-            <p>Remove a member's mute</p>
-        </div>
-
-        <div class="command">
-            <code>-underage</code>
-            <p>Handle an underage report</p>
-        </div>
+        <p>
+            Use <strong>-commands</strong> in Discord to view
+            the complete list available to you.
+        </p>
 
     </div>
 
-    <div class="command-category">
+</section>
 
-        <div class="category-title">
-            👑 Owner Commands
-        </div>
+<!-- PARTNERSHIPS -->
 
-        <div class="command">
-            <code>-announce</code>
-            <p>Send an announcement</p>
-        </div>
+<section id="partnerships">
 
-        <div class="command">
-            <code>-server</code>
-            <p>Open the server manager</p>
-        </div>
+    <h2>Partnerships</h2>
 
-        <div class="command">
-            <code>-applications</code>
-            <p>Manage applications</p>
-        </div>
+    <div class="partnership-intro">
 
-        <div class="command">
-            <code>-applicationpanel</code>
-            <p>Post the application panel</p>
-        </div>
-
-        <div class="command">
-            <code>-ticketpanel</code>
-            <p>Post the ticket panel</p>
-        </div>
+        <p>
+            Want to partner with PristBot?
+            We are open to working with Discord communities
+            and projects that want to grow together.
+        </p>
 
     </div>
 
-    <div class="command-category">
+    <div class="partnership-section">
 
-        <div class="category-title">
-            🌎 Global Owner
-        </div>
+        <div class="partnership-card">
 
-        <div class="command">
-            <code>ALL COMMANDS</code>
-            <p>Global Owners can use every PristBot command</p>
+            <h3>🤝 Partner With PristBot</h3>
+
+            <p>
+                Join the PristBot partnership program and connect
+                your community with the PristBot community.
+                Partnerships can help both communities discover
+                new members and build stronger Discord communities.
+            </p>
+
+            <div class="partnership-list">
+
+                <div class="partnership-item">
+                    <strong>📢 Server Promotion</strong>
+                    <span>
+                        Promote your Discord server to the PristBot community.
+                    </span>
+                </div>
+
+                <div class="partnership-item">
+                    <strong>🤝 Community Growth</strong>
+                    <span>
+                        Work together to introduce members to new communities.
+                    </span>
+                </div>
+
+                <div class="partnership-item">
+                    <strong>🌎 Community Network</strong>
+                    <span>
+                        Become part of the PristBot partner network.
+                    </span>
+                </div>
+
+                <div class="partnership-item">
+                    <strong>⚡ Easy Partnership</strong>
+                    <span>
+                        Contact the PristBot team to discuss a partnership.
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="partnership-button">
+
+                <a
+                    class="button"
+                    href="https://discord.gg/GWXkhgNWjB"
+                    target="_blank"
+                >
+                    🤝 Apply for Partnership
+                </a>
+
+            </div>
+
         </div>
 
     </div>
-
-</div>
-
-<div class="more">
-
-    <p>
-        More commands are available inside PristBot.
-    </p>
-
-    <p>
-        Use <strong>-commands</strong> in Discord to view
-        the complete list available to you.
-    </p>
-
-</div>
-```
 
 </section>
 
 <section id="updates">
 
-```
-<h2>Updates</h2>
+    <h2>Updates</h2>
 
-<div class="cards">
+    <div class="cards">
 
-    <div class="card">
-        <h3>🚀 New Commands</h3>
-        <p>
-            PristBot continues to receive new commands and
-            improvements.
-        </p>
+        <div class="card">
+            <h3>🚀 New Commands</h3>
+            <p>
+                PristBot continues to receive new commands and
+                improvements.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📢 Update System</h3>
+            <p>
+                PristBot can post update information to the
+                main server automatically.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🔧 Improvements</h3>
+            <p>
+                Existing systems are regularly improved,
+                fixed, and updated.
+            </p>
+        </div>
+
     </div>
-
-    <div class="card">
-        <h3>📢 Update System</h3>
-        <p>
-            PristBot can post update information to the
-            main server automatically.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>🔧 Improvements</h3>
-        <p>
-            Existing systems are regularly improved,
-            fixed, and updated.
-        </p>
-    </div>
-
-</div>
-```
 
 </section>
 
 <footer>
 
-```
-🤖 PristBot
+    🤖 PristBot
 
-<br><br>
+    <br><br>
 
-© 2026 PristBot. All rights reserved.
-```
+    © 2026 PristBot. All rights reserved.
 
 </footer>
 
 </body>
 </html>
+
+
